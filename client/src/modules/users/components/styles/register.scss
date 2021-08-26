@@ -1,0 +1,62 @@
+@import "../../../../shared/styles/mixins";
+
+#register__page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+    form {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 25px;
+        @include md {
+            width: 40% !important;
+
+        }
+        .form__group {
+            position: relative;
+            width: 100%;
+            input {
+                width: 100%;
+                border: 1px solid #eee;
+                outline-color: #2cbba7;
+                padding: 1.1rem 1.2rem
+            }
+            label {
+                position: absolute;
+                top: 0;
+                right: 20px;
+                transform: translateY(-50%);
+                font-weight: bold;
+                color: red;
+                background: #fff;
+                padding: 0 10px;
+            }
+        }
+        button {
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            padding: 0.9rem 1.5rem;
+            border: none !important;
+            background: #2cbba7;
+            color: #fff;
+            cursor: pointer;
+            &[disabled] {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
