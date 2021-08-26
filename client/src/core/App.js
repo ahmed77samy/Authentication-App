@@ -1,6 +1,7 @@
 import serviceProvider from "./service-provider.js"
 import UserService from "../modules/users/service.js"
 import RouteService from "./route-service"
+import ConfigService from "./config-service"
 
 class App {
     /**
@@ -17,7 +18,8 @@ class App {
      */
     registerInternal() {
         let InternalServiceList = [
-            RouteService
+            RouteService,
+            ConfigService
         ]
         serviceProvider.registerInternal(InternalServiceList)
     }

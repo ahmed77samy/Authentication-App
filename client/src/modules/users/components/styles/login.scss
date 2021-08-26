@@ -1,6 +1,6 @@
 @import "../../../../shared/styles/mixins";
 
-#register__page {
+#login__page {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -56,6 +56,11 @@
             &[disabled] {
                 opacity: 0.6;
                 cursor: not-allowed;
+            }
+            &.disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+                pointer-events: none;
             }
         }
     }

@@ -1,0 +1,10 @@
+@import "../../styles/mixins";
+
+.container {
+    padding-left: 25px;
+    padding-right: 25px;
+    @include xs {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

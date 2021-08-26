@@ -14,10 +14,15 @@ class Form extends AppComponent {
             values[name] = e.target[name].value
             return false
         })
+        e.target.submit.classList.add("disabled")
         if(this.props.onSubmit) {
-            return this.props.onSubmit(values)
+            let submitBtn = e.target.submit
+            return this.props.onSubmit(values , submitBtn)
         }
-        console.log(values)
+        setTimeout(() => {
+            e.target.submit.classList.remove("disabled")
+            console.log(values)
+        }, 1000);
     }
     render() {
         return (

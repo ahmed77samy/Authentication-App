@@ -1,3 +1,4 @@
+import config from "./shared/config" // eslint-disable-line no-unused-vars
 import reportWebVitals from './reportWebVitals';
 import App from "./core/App";
 import "./index.scss"
