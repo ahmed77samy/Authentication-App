@@ -9,24 +9,20 @@ import EmailVerification from "./components/email-verification"
 
 /**
  * middleware checked on logged In
- * @returns {*}
+ * @returns {Function}
  */
-function isLoggedIn (history) {
-    (async () => {
-        let status = await User.isLogedIn()
-        return status === true && history.push("/user")
-    })()
+async function isLoggedIn (history) {
+    let status = await User.isLogedIn()
+    return status === true && function () {history.push("/user")}
 }
 
 /**
  * middleware checked on logged In
- * @returns {*}
+ * @returns {Function}
  */
-function isLoggedOut (history) {
-    (async () => {
-        let status = await User.isLogedIn()
-        return status === false && history.push("/login")
-    })()
+async function isLoggedOut (history) {
+    let status = await User.isLogedIn()
+    return status === false && function () {history.push("/login")}
 }
 
 /**
