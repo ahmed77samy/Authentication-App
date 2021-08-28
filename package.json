@@ -8,7 +8,7 @@
         "server": "npm start --prefix server",
         "client": "npm start --prefix client",
         "install": "npm install --prefix server && npm install --prefix client",
-        "start": "node server/index.js",
+        "start": "npm start --prefix server",
         "heroku-postbuild": "npm run build --prefix client"
     },
     "author": "Ahmed Samy",
