@@ -10,14 +10,16 @@ export default class RestfulEndpoint {
     route = '';
 
     /**
-     * Fetch records from endpoint api
-     * 
-     * @param   {object} params 
-     * @returns {Promise}
+     * refresh page real time
+     * @param {String} path 
+     * @param {String} token 
+     * @returns 
      */
-    list(params) {        
-        return endpoint.get(this.route, {
-            params,
+    refresh(path, token) {
+        return endpoint.get(this.route + path, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
         });
     }
 
@@ -28,10 +30,8 @@ export default class RestfulEndpoint {
      * @param   {object} params 
      * @returns {Promise}
      */
-    get(id, params) {
-        return endpoint.get(this.route + '/' + id, {
-            params
-        });
+    get(path, params) {
+        return endpoint.get(this.route + path, params);
     }
 
     /**

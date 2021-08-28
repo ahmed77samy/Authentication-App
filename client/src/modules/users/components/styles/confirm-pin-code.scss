@@ -1,6 +1,6 @@
 @import "../../../../shared/styles/mixins";
 
-#register__page {
+#reset__password__page {
     height: calc(100vh - 77px);
     display: flex;
     flex-direction: column;
@@ -10,8 +10,16 @@
         font-weight: bold;
         text-align: center;
         margin-top: 0;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
+    & > p {
+        text-transform: capitalize;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 35px;
+        color: #8e8e8e;
+    }
+
     form {
         width: 100%;
         margin: 0 auto;
@@ -21,7 +29,11 @@
         row-gap: 25px;
         @include md {
             width: 40% !important;
-
+        }
+        & > label {
+            color: red;
+            text-align: left;
+            font-weight: 700;
         }
         .form__group {
             position: relative;
@@ -56,6 +68,11 @@
             &[disabled] {
                 opacity: 0.6;
                 cursor: not-allowed;
+            }
+            &.disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+                pointer-events: none;
             }
         }
         p {

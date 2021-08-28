@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import Middleware from "./middleware"
+import {Router,Switch,Route} from "react-router-dom";
+
+import {createBrowserHistory} from "history"
 
 let routeList = []
-
+let history = createBrowserHistory()
 /**
  * add routing to route list
  * @param {String} path 
  * @param {React.Component} component 
+ * @param {Array} middleware
  */
-function addRouting (path, component) {
-    routeList.push({path, component})
+function addRouting (path, component, middleware = null) {
+    routeList.push({path, component, middleware})
 }
 
 /**
@@ -20,11 +24,13 @@ function addRouting (path, component) {
 function Routes () {
     let routes = routeList.map((route, index) => {
         return(
-            <Route path={route.path} component={route.component} key={index} exact />
+            <Route path={route.path} key={index} exact>
+                <Middleware route={route} history={history} />
+            </Route>
         )
     })
     return (
-        <Router>
+        <Router history={history}>
             <Switch>
                 {routes}
             </Switch>

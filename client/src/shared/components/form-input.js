@@ -11,6 +11,7 @@ class FromInput extends AppComponent {
      * @returns {Function}
      */
     validation(e) {
+        let password = this.props.password || 'password'
         let errors = {}
         if(this.props.onChange) {
             return this.props.onChange()
@@ -25,11 +26,14 @@ class FromInput extends AppComponent {
             this.props.type === "email" && !Is.empty((e.target.value)) && !Is.email(e.target.value) &&
             Obj.set(errors, `${e.target.name}` , "this filed is invalid")
             // validate password
-            this.props.type === "password" && this.props.name === "password" && e.target.closest("form").password_confirmation?.value !== e.target.value ?
-            Obj.set(errors, `password_confirmation` , "this filed is not matched with password") : Obj.set(errors, `password_confirmation` , null)
+            if(this.props.type === "password" && this.props.name === password) {
+                e.target.closest("form").password_confirmation?.value !== e.target.value ?
+                Obj.set(errors, `password_confirmation` , "this filed is not matched with password") : Obj.set(errors, `password_confirmation` , null)
+            }
             // validate password_confirmation
-            this.props.type === "password" && this.props.name === "password_confirmation" && e.target.closest("form").password.value !== e.target.value &&
+            this.props.type === "password" && this.props.name === "password_confirmation" && e.target.closest("form")[password].value !== e.target.value &&
             Obj.set(errors, `${e.target.name}` , "this filed is not matched with password")
+            
             this.props.onValidate(errors)
         }
     }

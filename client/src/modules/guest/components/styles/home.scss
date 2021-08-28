@@ -1,0 +1,13 @@
+@import "../../../../shared/styles/mixins";
+
+#home__page {
+    height: calc(100vh - 77px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        font-size: 3.6em;
+        text-transform: uppercase;
+        margin: 0;
+    }   
+}

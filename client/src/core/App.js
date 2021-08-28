@@ -1,5 +1,6 @@
 import serviceProvider from "./service-provider.js"
 import UserService from "../modules/users/service.js"
+import GuestService from "../modules/guest/service.js"
 import RouteService from "./route-service"
 import ConfigService from "./config-service"
 
@@ -9,7 +10,8 @@ class App {
      */
     register() {
         let serviceList = [
-            UserService
+            UserService,
+            GuestService
         ]
         serviceProvider.register(serviceList)
     }

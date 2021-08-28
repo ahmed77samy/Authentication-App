@@ -5,6 +5,7 @@ import FromInput from "../../../shared/components/form-input";
 import "./styles/register.scss"
 import UserApi from "../Api/Api"
 import Layout from "../../../shared/components/layout";
+import { Link } from "react-router-dom";
 
 class Register extends AppComponent {
     state={
@@ -16,8 +17,8 @@ class Register extends AppComponent {
         }
     }
     init() {
-        title("App Register")
-        description("App Register With React Js")
+        title("Register App")
+        description("Register App With React Js")
     }
     /**
      * set the errors to the state
@@ -32,7 +33,7 @@ class Register extends AppComponent {
      * custom submit to axios request
      * handle btn submit
      * @param {object} values 
-     * @param {Element} submitBtn 
+     * @param {React.element} submitBtn 
      */
     register(values , submitBtn) {
         UserApi.register("/register", values)
@@ -53,8 +54,8 @@ class Register extends AppComponent {
     render() {
         let {name, email, password, password_confirmation} = this.state.errors
         return(
-            <div id="register__page">
-                <Layout>
+            <Layout>
+                <div id="register__page">
                     <h1>app register</h1>
                     <Form initValues={['name', 'email', 'password', 'password_confirmation']} onSubmit={this.register.bind(this)}>
                         <FromInput type="name" placeholder="Name" name="name" onValidate={this.validate.bind(this)} errors={name} required validate />
@@ -62,9 +63,10 @@ class Register extends AppComponent {
                         <FromInput type="password" placeholder="Password" name="password" onValidate={this.validate.bind(this)} errors={password} required validate />
                         <FromInput type="password" placeholder="Confirm Password" name="password_confirmation" onValidate={this.validate.bind(this)} errors={password_confirmation} required validate />
                         <button name="submit" disabled={name || email || password || password_confirmation}>submit</button>
+                        <p>Have an account? <Link to="/login">Log in</Link></p>
                     </Form>
-                </Layout>
-            </div>
+                </div>
+            </Layout>
         )
     }
 }

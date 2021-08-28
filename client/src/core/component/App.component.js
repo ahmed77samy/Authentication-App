@@ -57,7 +57,7 @@ class AppComponent extends React.Component {
     /**
      * set state from any component by dot notaion
      * @param {String} key 
-     * @param {String} value 
+     * @param {*} value 
      */
     set(key, value){
         this.setState(

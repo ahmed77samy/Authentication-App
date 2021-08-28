@@ -1,0 +1,43 @@
+@import "../../styles/mixins";
+
+header {
+    background: #2cbba7;
+    display: flex;
+    padding: 25px 20px;
+    justify-content: space-between;
+    align-items: center;
+    @include xs {
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 20px;
+    }
+    .header__logo {
+        span {
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 24px;
+            a {
+                all: unset;
+                cursor: pointer;
+            }
+        }
+    }
+    .header__navigation {
+        ul {
+            list-style: none;
+            // background: red;
+            display: flex;
+            column-gap: 20px;
+            a {
+                color: #fff;
+                text-transform: uppercase;
+                text-decoration: none;
+                transition: .3s;
+            }
+            a:hover {
+                // color: #fff;
+            }
+        }
+    }
+}

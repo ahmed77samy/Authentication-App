@@ -1,0 +1,17 @@
+@import "../../../../shared/styles/mixins";
+
+#user__page {
+    height: calc(100vh - 77px);
+
+    ul {
+        list-style: none;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+    li {
+        font-size: 22px;
+        text-transform: capitalize;
+    }
+}

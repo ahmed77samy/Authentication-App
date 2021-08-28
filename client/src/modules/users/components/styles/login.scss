@@ -1,7 +1,7 @@
 @import "../../../../shared/styles/mixins";
 
 #login__page {
-    height: 100vh;
+    height: calc(100vh - 77px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,6 +22,11 @@
         @include md {
             width: 40% !important;
 
+        }
+        & > label {
+            color: red;
+            text-align: left;
+            font-weight: 700;
         }
         .form__group {
             position: relative;
@@ -61,6 +66,12 @@
                 opacity: 0.6;
                 cursor: not-allowed;
                 pointer-events: none;
+            }
+        }
+        p {
+            text-transform: capitalize;
+            a {
+                color: #2cbba7;
             }
         }
     }
